@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
+
+import animals from './animalsData';
+
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      animals: animals
+    }
+  }
+
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h1>Animals</h1>
         </header>
+        <div>
+          {this.state.animals.map(animal => (
+            <div key='animal.id'>
+              Name: {animal.name} - Species: {animal.species}
+            </div>
+          ))};
+        </div>
       </div>
     );
   }
